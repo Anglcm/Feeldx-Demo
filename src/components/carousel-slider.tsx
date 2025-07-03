@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, User, Quote } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 import img3d from "@/assets/3d-image.jpg";
 import img4d from "@/assets/4d.jpg";
@@ -173,26 +173,26 @@ const ImageCarousel = () => {
   );
 };
 
-const testimonials = [
-  {
-    comment: "FeelDX exceeded our expectations. The 3D models made our project so much clearer.",
-    name: "Avinash Kr",
-    role: "Co-Founder at xyz",
-    color: "text-yellow-600",
-  },
-  {
-    comment: "The team was responsive and the results were fantastic. Highly recommended!",
-    name: "Bharat Kunal",
-    role: "Manager at xyz",
-    color: "text-orange-600",
-  },
-  {
-    comment: "Great communication and delivery. Will work with them again for sure.",
-    name: "Prabhakar D",
-    role: "Founder / CEO at xyz",
-    color: "text-yellow-600",
-  },
-];
+// const testimonials = [
+//   {
+//     comment: "FeelDX exceeded our expectations. The 3D models made our project so much clearer.",
+//     name: "Avinash Kr",
+//     role: "Co-Founder at xyz",
+//     color: "text-yellow-600",
+//   },
+//   {
+//     comment: "The team was responsive and the results were fantastic. Highly recommended!",
+//     name: "Bharat Kunal",
+//     role: "Manager at xyz",
+//     color: "text-orange-600",
+//   },
+//   {
+//     comment: "Great communication and delivery. Will work with them again for sure.",
+//     name: "Prabhakar D",
+//     role: "Founder / CEO at xyz",
+//     color: "text-yellow-600",
+//   },
+// ];
 
 // const TestimonialsSection = () => (
 //   <div className="py-16 px-4 bg-white">
