@@ -56,7 +56,7 @@ export function Header() {
             className="fixed inset-0 bg-black/50"
             onClick={() => setSidebarOpen(false)}
           />
-          <div className="relative bg-white dark:bg-gray-900 w-64 h-full shadow-lg p-6 flex flex-col items-start animate-slide-in-right">
+          <div className="relative bg-card w-64 h-full shadow-lg p-6 flex flex-col items-start animate-slide-in-right">
             <button
               className="absolute top-4 right-4"
               onClick={() => setSidebarOpen(false)}

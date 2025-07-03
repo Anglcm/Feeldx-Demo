@@ -104,7 +104,7 @@ const ImageCarousel = () => {
                 className="flex-shrink-0 px-2"
                 style={{ width: `${100 / cardsPerView}%` }}
               >
-                <div className="group flex flex-col justify-between bg-white rounded-lg  overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 h-96">
+                <div className="group flex flex-col justify-between bg-card text-card-foreground rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 h-96">
                   {/* Image Container */}
                   <div className="w-full aspect-[4/5] overflow-hidden rounded-t-lg">
                     <img
@@ -115,8 +115,8 @@ const ImageCarousel = () => {
                     
                     {/* Hover Overlay */}
                     <div className="absolute inset-0 bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 flex items-center justify-center text-foreground">
-                      <div className="text-white text-center px-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
-                        <p className="text-sm leading-relaxed text-foreground">
+                      <div className="text-card-foreground text-center px-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
+                        <p className="text-sm leading-relaxed text-muted-foreground">
                           {image.description}
                         </p>
                       </div>
@@ -125,7 +125,7 @@ const ImageCarousel = () => {
                   
                   {/* Image Name */}
                   <div className="p-4 flex-1 flex items-end">
-                    <h3 className="text-lg font-semibold text-gray-800 text-center w-full">
+                    <h3 className="text-lg font-semibold text-foreground text-center w-full">
                       {image.name}
                     </h3>
                   </div>

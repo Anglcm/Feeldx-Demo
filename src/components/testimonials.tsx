@@ -119,23 +119,23 @@ const ValueProposition = () => {
           {getCurrentTestimonials().map((t, i) => (
             <div
               key={i}
-              className="relative bg-white rounded-xl shadow-lg pt-14 pb-8 px-6 flex flex-col items-center mt-8"
+              className="relative bg-card text-card-foreground rounded-xl shadow-lg pt-14 pb-8 px-6 flex flex-col items-center mt-8"
             >
               {/* Icon Avatar */}
               <div className="absolute -top-12 left-1/2 -translate-x-1/2">
-                <div className="w-24 h-24 rounded-full border-4 border-white shadow-md bg-gray-100 flex items-center justify-center">
-                  <User className="w-14 h-14 text-gray-400" />
+                <div className="w-24 h-24 rounded-full border-4 border-card shadow-md bg-muted flex items-center justify-center">
+                  <User className="w-14 h-14 text-muted-foreground" />
                 </div>
               </div>
               {/* Quote and Text */}
-              <Quote className="w-8 h-8  text-gray-700 mb-2"/>
-              <p className="text-center text-gray-700 mb-6 mt-2">
+              <Quote className="w-8 h-8 text-muted-foreground mb-2"/>
+              <p className="text-center text-foreground mb-6 mt-2">
                 {t.comment}
               </p>
               {/* Name and Role */}
               <div className="text-center mt-auto">
-                <span className={`font-bold text-lg  text-gray-700`}>{t.name}</span>
-                <span className="block text-sm mt-1  text-gray-700" >{t.role}</span>
+                <span className={`font-bold text-lg text-foreground`}>{t.name}</span>
+                <span className="block text-sm mt-1 text-muted-foreground" >{t.role}</span>
               </div>
             </div>
           ))}

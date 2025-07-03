@@ -155,7 +155,7 @@ const ClientLogoCarousel = () => {
                   className="flex flex-col items-center flex-1"
                 >
                   <div
-                    className="w-full max-w-[180px] aspect-square bg-white rounded-full shadow flex items-center justify-center overflow-hidden border border-gray-200 mx-auto p-2 sm:w-48 sm:h-48 lg:w-40 lg:h-40"
+                    className="w-full max-w-[180px] aspect-square bg-card rounded-full shadow flex items-center justify-center overflow-hidden border border-card mx-auto p-2 sm:w-48 sm:h-48 lg:w-40 lg:h-40"
                   >
                     <img
                       src={logo.src}

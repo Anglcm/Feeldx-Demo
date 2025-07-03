@@ -59,7 +59,7 @@ const ValueProposition = () => {
               return (
                 <div
                   key={index}
-                  className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer min-h-[280px] flex flex-col items-center justify-center text-center hover:scale-105 hover:z-10"
+                  className="group relative bg-card text-card-foreground rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer min-h-[280px] flex flex-col items-center justify-center text-center hover:scale-105 hover:z-10"
                   onClick={() => {
                     if (window.innerWidth < 1024) setOpenIndex(isOpen ? null : cardIdx);
                   }}
@@ -69,16 +69,16 @@ const ValueProposition = () => {
                     <div className="w-full flex justify-center mb-6">
                       {value.icon}
                     </div>
-                    <h3 className="text-xl font-semibold text-gray-800 leading-tight">
+                    <h3 className="text-xl font-semibold text-foreground leading-tight">
                       {value.title}
                     </h3>
                   </div>
 
                   {/* Description: show on hover (desktop) or click (mobile/tablet) */}
-                  <div className={`absolute inset-0 p-6 flex items-center justify-center bg-white rounded-2xl transition-opacity duration-300 ${isOpen && isMobile ? 'opacity-100 z-20' : 'opacity-0 group-hover:opacity-100'}`}
+                  <div className={`absolute inset-0 p-6 flex items-center justify-center bg-card text-card-foreground rounded-2xl transition-opacity duration-300 ${isOpen && isMobile ? 'opacity-100 z-20' : 'opacity-0 group-hover:opacity-100'}`}
                     style={{ pointerEvents: isOpen && isMobile ? 'auto' : undefined }}
                   >
-                    <p className="text-gray-600 text-sm leading-relaxed text-center">
+                    <p className="text-muted-foreground text-sm leading-relaxed text-center">
                       {value.description}
                     </p>
                   </div>
@@ -95,7 +95,7 @@ const ValueProposition = () => {
               return (
                 <div
                   key={cardIdx}
-                  className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer min-h-[280px] flex flex-col items-center justify-center text-center hover:scale-105 hover:z-10"
+                  className="group relative bg-card text-card-foreground rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer min-h-[280px] flex flex-col items-center justify-center text-center hover:scale-105 hover:z-10"
                   onClick={() => {
                     if (window.innerWidth < 1024) setOpenIndex(isOpen ? null : cardIdx);
                   }}
@@ -105,16 +105,16 @@ const ValueProposition = () => {
                     <div className="w-full flex justify-center mb-6">
                       {value.icon}
                     </div>
-                    <h3 className="text-xl font-semibold text-gray-800 leading-tight">
+                    <h3 className="text-xl font-semibold text-foreground leading-tight">
                       {value.title}
                     </h3>
                   </div>
 
                   {/* Description: show on hover (desktop) or click (mobile/tablet) */}
-                  <div className={`absolute inset-0 p-6 flex items-center justify-center bg-white rounded-2xl transition-opacity duration-300 ${isOpen && isMobile ? 'opacity-100 z-20' : 'opacity-0 group-hover:opacity-100'}`}
+                  <div className={`absolute inset-0 p-6 flex items-center justify-center bg-card text-card-foreground rounded-2xl transition-opacity duration-300 ${isOpen && isMobile ? 'opacity-100 z-20' : 'opacity-0 group-hover:opacity-100'}`}
                     style={{ pointerEvents: isOpen && isMobile ? 'auto' : undefined }}
                   >
-                    <p className="text-gray-600 text-sm leading-relaxed text-center">
+                    <p className="text-muted-foreground text-sm leading-relaxed text-center">
                       {value.description}
                     </p>
                   </div>
@@ -126,21 +126,21 @@ const ValueProposition = () => {
 
         {/* Additional Stats Row - Similar to Pearagon's bottom row */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
-          <div className="bg-white rounded-2xl p-6 text-center shadow-lg">
+          <div className="bg-card text-card-foreground rounded-2xl p-6 text-center shadow-lg">
             <div className="text-3xl font-bold text-green-600 mb-2">50+</div>
-            <div className="text-gray-700 text-sm font-medium">Projects Completed</div>
+            <div className="text-muted-foreground text-sm font-medium">Projects Completed</div>
           </div>
-          <div className="bg-white rounded-2xl p-6 text-center shadow-lg">
+          <div className="bg-card text-card-foreground rounded-2xl p-6 text-center shadow-lg">
             <div className="text-3xl font-bold text-green-600 mb-2">15+</div>
-            <div className="text-gray-700 text-sm font-medium">Years Experience</div>
+            <div className="text-muted-foreground text-sm font-medium">Years Experience</div>
           </div>
-          <div className="bg-white rounded-2xl p-6 text-center shadow-lg">
+          <div className="bg-card text-card-foreground rounded-2xl p-6 text-center shadow-lg">
             <div className="text-3xl font-bold text-green-600 mb-2">100%</div>
-            <div className="text-gray-700 text-sm font-medium">Client Satisfaction</div>
+            <div className="text-muted-foreground text-sm font-medium">Client Satisfaction</div>
           </div>
-          <div className="bg-white rounded-2xl p-6 text-center shadow-lg">
+          <div className="bg-card text-card-foreground rounded-2xl p-6 text-center shadow-lg">
             <div className="text-3xl font-bold text-green-600 mb-2">24/7</div>
-            <div className="text-gray-700 text-sm font-medium">Support Available</div>
+            <div className="text-muted-foreground text-sm font-medium">Support Available</div>
           </div>
         </div>
       </div>
