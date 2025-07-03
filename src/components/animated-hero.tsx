@@ -402,7 +402,7 @@ const HeroSection = () => {
 
   return (
     // <div className="relative h-screen w-full bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900 overflow-hidden">
-    <div className="relative w-full overflow-hidden">
+    <div className="relative w-full overflow-hidden mt-8">
       <style>{`
         @keyframes window-activate {
           0% { 
@@ -471,13 +471,47 @@ const HeroSection = () => {
               space-x-2 sm:space-x-4`}
             style={{ fontFamily: 'Inter, Segoe UI, sans-serif' }}
           >
-            <span className="text-lg md:text-2xl lg:text-4xl font-bold text-foreground">Plan</span>
-            <span style={{ background: 'var(--services-bg)' }} className="w-2 h-2 sm:w-3 sm:h-3 md:w-4 md:h-4 rounded-full animate-pulse mx-1 mr-5"  />
-            <span className="text-lg md:text-2xl lg:text-4xl font-bold text-foreground">Visualise</span>
-            <span style={{ background: 'var(--services-bg)' }} className="w-2 h-2 sm:w-3 sm:h-3 md:w-4 md:h-4 rounded-full animate-pulse mx-1 mr-5" />
-            <span className="text-lg md:text-2xl lg:text-4xl font-bold text-foreground">Transform</span>
+            {/* Plan */}
+            <span
+              className={`text-lg md:text-2xl lg:text-4xl font-bold text-foreground transition-all duration-700
+                ${showAnimatedRow ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+              style={{ transitionDelay: '0ms' }}
+            >
+              Plan
+            </span>
+            {/* Dot 1 */}
+            <span
+              style={{ background: 'var(--services-bg)', transitionDelay: '200ms' }}
+              className={`w-2 h-2 sm:w-3 sm:h-3 md:w-4 md:h-4 rounded-full mx-1 mr-5 transition-all duration-700
+                ${showAnimatedRow ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+            />
+            {/* Visualise */}
+            <span
+              className={`text-lg md:text-2xl lg:text-4xl font-bold text-foreground transition-all duration-700
+                ${showAnimatedRow ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+              style={{ transitionDelay: '400ms' }}
+            >
+              Visualise
+            </span>
+            {/* Dot 2 */}
+            <span
+              style={{ background: 'var(--services-bg)', transitionDelay: '600ms' }}
+              className={`w-2 h-2 sm:w-3 sm:h-3 md:w-4 md:h-4 rounded-full mx-1 mr-5 transition-all duration-700
+                ${showAnimatedRow ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+            />
+            {/* Transform */}
+            <span
+              className={`text-lg md:text-2xl lg:text-4xl font-bold text-foreground transition-all duration-700
+                ${showAnimatedRow ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+              style={{ transitionDelay: '800ms' }}
+            >
+              Transform
+            </span>
           </div>
-          <p className={`text-sm sm:text-base md:text-xl text-foreground mb-8 max-w-xs sm:max-w-md md:max-w-3xl transition-opacity duration-1000 ${showAnimatedRow ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'} text-center mx-auto px-2`}> 
+          <p className={`text-sm sm:text-base md:text-xl text-foreground mb-8 max-w-xs sm:max-w-md md:max-w-3xl transition-all duration-700 text-center mx-auto px-2
+            ${showAnimatedRow ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+            style={{ transitionDelay: '1100ms' }}
+          >
             We push beyond visual representation, integrating and connecting with your project's
             requirements, bringing them to life and enhancing clarity to create a truly immersive experience.
           </p>
