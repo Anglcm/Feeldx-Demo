@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, User, Quote } from 'lucide-react';
 
 import img3d from "@/assets/3d-image.jpg";
 import img4d from "@/assets/4d.jpg";
@@ -80,9 +80,14 @@ const ImageCarousel = () => {
 
   return (
     <div className="w-full max-w-7xl mx-auto p-0 text-foreground mt-30 mb-5">
-      <h2 className="text-3xl font-bold text-center mb-0 text-foreground mb-20">
+      {/* <h2 className="text-3xl font-bold text-center mb-0 text-foreground mb-20">
         SERVICE OVERVIEW
-      </h2>
+      </h2> */}
+      <div className="text-center mb-16">
+          <h1 className="text-5xl md:text-6xl font-light mb-4 text-foreground">
+            Service Overview
+          </h1>
+        </div>
       
       <div className="relative">
         {/* Carousel Container */}
@@ -167,5 +172,61 @@ const ImageCarousel = () => {
     </div>
   );
 };
+
+const testimonials = [
+  {
+    comment: "FeelDX exceeded our expectations. The 3D models made our project so much clearer.",
+    name: "Avinash Kr",
+    role: "Co-Founder at xyz",
+    color: "text-yellow-600",
+  },
+  {
+    comment: "The team was responsive and the results were fantastic. Highly recommended!",
+    name: "Bharat Kunal",
+    role: "Manager at xyz",
+    color: "text-orange-600",
+  },
+  {
+    comment: "Great communication and delivery. Will work with them again for sure.",
+    name: "Prabhakar D",
+    role: "Founder / CEO at xyz",
+    color: "text-yellow-600",
+  },
+];
+
+const TestimonialsSection = () => (
+  <div className="py-16 px-4 bg-white">
+    <h2 className="text-3xl md:text-4xl font-bold text-center text-yellow-600 mb-2 uppercase tracking-wide">
+      TESTIMONIALS
+    </h2>
+    <p className="text-center text-gray-600 mb-10">
+      Subscribe Easy Tutorials YouTube channel to watch more videos.
+    </p>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      {testimonials.map((t, i) => (
+        <div
+          key={i}
+          className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center border border-gray-200"
+        >
+          <div className="relative mb-4">
+            <span className="absolute -top-2 -left-2 text-yellow-500">
+              <Quote className="w-7 h-7" />
+            </span>
+            <div className="w-20 h-20 rounded-full bg-gray-100 flex items-center justify-center border-4 border-white shadow-md mx-auto">
+              <User className="w-12 h-12 text-gray-400" />
+            </div>
+          </div>
+          <p className="text-gray-700 mb-6 text-sm leading-relaxed">
+            {t.comment}
+          </p>
+          <div className="font-bold text-base mb-1">
+            <span className={t.color}>{t.name}</span>
+            <span className="text-gray-500 font-normal"> {t.role && ` ${t.role}`}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+);
 
 export default ImageCarousel;

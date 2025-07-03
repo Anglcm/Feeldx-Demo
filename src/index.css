@@ -167,3 +167,11 @@ body, html, #root {
 .card, .btn {
   transition: background 0.5s, border-color 0.5s;
 }
+
+.animate-slide-in-right {
+  animation: slideInRight 0.3s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+@keyframes slideInRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}

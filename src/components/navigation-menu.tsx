@@ -77,134 +77,43 @@ export function NavigationMenu() {
       <ShadNavigationMenu viewport={false}>
         <NavigationMenuList>
           <NavigationMenuItem>
-            <NavigationMenuTrigger>Home</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <ul className="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                <li className="row-span-3">
-                  <NavigationMenuLink asChild>
-                    <Link
-                      className="from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md p-6 no-underline outline-hidden select-none"
-                      to="/"
-                    >
-                      <div className="mt-4 mb-2 text-lg font-medium text-card-foreground">
-                        shadcn/ui
-                      </div>
-                      <p className="text-muted-foreground text-sm leading-tight">
-                        Beautifully designed components built with Tailwind CSS.
-                      </p>
-                    </Link>
-                  </NavigationMenuLink>
-                </li>
-                <ListItem to="/docs" title="Introduction">
-                  Re-usable components built using Radix UI and Tailwind CSS.
-                </ListItem>
-                <ListItem to="/docs/installation" title="Installation">
-                  How to install dependencies and structure your app.
-                </ListItem>
-                <ListItem to="/docs/primitives/typography" title="Typography">
-                  Styles for headings, paragraphs, lists...etc
-                </ListItem>
-              </ul>
-            </NavigationMenuContent>
+            <NavigationMenuLink asChild>
+              <a href="#hero">Home</a>
+            </NavigationMenuLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuTrigger>Components</NavigationMenuTrigger>
+            <NavigationMenuLink asChild>
+              <a href="#services">Service Overview</a>
+            </NavigationMenuLink>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>About Us</NavigationMenuTrigger>
             <NavigationMenuContent>
-              <ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                {components.map((component) => (
-                  <ListItem
-                    key={component.title}
-                    title={component.title}
-                    to={component.to}
-                  >
-                    {component.description}
-                  </ListItem>
-                ))}
+              <ul className="grid w-[300px] gap-4">
+                <li>
+                  <NavigationMenuLink asChild>
+                    <a href="#value">
+                      <div className="font-medium">Why Choose FeelDX?</div>
+                    </a>
+                  </NavigationMenuLink>
+                  <NavigationMenuLink asChild>
+                    <a href="#clients">
+                      <div className="font-medium">Our Clients</div>
+                    </a>
+                  </NavigationMenuLink>
+                  <NavigationMenuLink asChild>
+                    <a href="#testimonials">
+                      <div className="font-medium">Testimonials</div>
+                    </a>
+                  </NavigationMenuLink>
+                </li>
               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuLink asChild>
-              <Link to="/test1">Docs</Link>
+              <a href="/contact">Contact Us</a>
             </NavigationMenuLink>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>List</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <ul className="grid w-[300px] gap-4">
-                <li>
-                  <NavigationMenuLink asChild>
-                    <Link to="#">
-                      <div className="font-medium">Components</div>
-                      <div className="text-muted-foreground">
-                        Browse all components in the library.
-                      </div>
-                    </Link>
-                  </NavigationMenuLink>
-                  <NavigationMenuLink asChild>
-                    <Link to="#">
-                      <div className="font-medium">Documentation</div>
-                      <div className="text-muted-foreground">
-                        Learn how to use the library.
-                      </div>
-                    </Link>
-                  </NavigationMenuLink>
-                  <NavigationMenuLink asChild>
-                    <Link to="#">
-                      <div className="font-medium">Blog</div>
-                      <div className="text-muted-foreground">
-                        Read our latest blog posts.
-                      </div>
-                    </Link>
-                  </NavigationMenuLink>
-                </li>
-              </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>Simple</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <ul className="grid w-[200px] gap-4">
-                <li>
-                  <NavigationMenuLink asChild>
-                    <Link to="#">Components</Link>
-                  </NavigationMenuLink>
-                  <NavigationMenuLink asChild>
-                    <Link to="#">Documentation</Link>
-                  </NavigationMenuLink>
-                  <NavigationMenuLink asChild>
-                    <Link to="#">Blocks</Link>
-                  </NavigationMenuLink>
-                </li>
-              </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>With Icon</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <ul className="grid w-[200px] gap-4">
-                <li>
-                  <NavigationMenuLink asChild>
-                    <Link to="#" className="flex-row items-center gap-2">
-                      <CircleHelpIcon />
-                      Backlog
-                    </Link>
-                  </NavigationMenuLink>
-                  <NavigationMenuLink asChild>
-                    <Link to="#" className="flex-row items-center gap-2">
-                      <CircleIcon />
-                      To Do
-                    </Link>
-                  </NavigationMenuLink>
-                  <NavigationMenuLink asChild>
-                    <Link to="#" className="flex-row items-center gap-2">
-                      <CircleCheckIcon />
-                      Done
-                    </Link>
-                  </NavigationMenuLink>
-                </li>
-              </ul>
-            </NavigationMenuContent>
           </NavigationMenuItem>
         </NavigationMenuList>
       </ShadNavigationMenu>

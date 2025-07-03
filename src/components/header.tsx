@@ -1,12 +1,38 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { NavigationMenu } from "./navigation-menu";
 import logoWhite from "@/assets/logo-white.png";
 import logoDark from "@/assets/logo-dark.png";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
+import { Switch } from "@/components/ui/switch";
 
 export function Header() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [isDark, setIsDark] = useState(() => {
+    if (typeof window !== "undefined") {
+      return (
+        localStorage.getItem("theme") === "dark" ||
+        (!localStorage.getItem("theme") &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      );
+    }
+    return false;
+  });
+
+  // Sync dark mode
+  // (This effect is safe to run in both header and navigation-menu)
+  // You may want to extract this to a custom hook for DRY code
+  // but for now, just duplicate for clarity
+  // (If you want, ask for a custom hook after this step)
+  useEffect(() => {
+    if (isDark) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }, [isDark]);
 
   return (
     <header className="w-full shadow px-4 py-2 flex items-center justify-between" style={{ borderBottom: '1px solid var(--dark-services-bg)' }}>
@@ -25,12 +51,12 @@ export function Header() {
         <Menu size={28} />
       </button>
       {sidebarOpen && (
-        <div className="fixed inset-0 z-50 flex">
+        <div className="fixed inset-0 z-50 flex justify-end">
           <div
             className="fixed inset-0 bg-black/50"
             onClick={() => setSidebarOpen(false)}
           />
-          <div className="relative bg-white dark:bg-gray-900 w-64 h-full shadow-lg p-6 flex flex-col">
+          <div className="relative bg-white dark:bg-gray-900 w-64 h-full shadow-lg p-6 flex flex-col items-start animate-slide-in-right">
             <button
               className="absolute top-4 right-4"
               onClick={() => setSidebarOpen(false)}
@@ -38,13 +64,32 @@ export function Header() {
             >
               <X size={28} />
             </button>
-            <nav className="mt-12 flex flex-col gap-4">
-              <Link to="/" onClick={() => setSidebarOpen(false)}>Home</Link>
-              <Link to="/docs" onClick={() => setSidebarOpen(false)}>Docs</Link>
+            <nav className="mt-12 flex flex-col gap-4 w-full">
+              <a href="#hero" onClick={() => setSidebarOpen(false)} className="py-2">Home</a>
+              <a href="#services" onClick={() => setSidebarOpen(false)} className="py-2">Service Overview</a>
+              <a href="#value" onClick={() => setSidebarOpen(false)} className="py-2">Why Choose FeelDX?</a>
+              <a href="#clients" onClick={() => setSidebarOpen(false)} className="py-2">Our Clients</a>
+              <a href="#testimonials" onClick={() => setSidebarOpen(false)} className="py-2">Testimonials</a>
+              <a href="/contact" onClick={() => setSidebarOpen(false)} className="py-2">Contact Us</a>
             </nav>
+            {/* Theme Switch */}
+            <div className="mt-8 flex items-center gap-2">
+              <Sun size={18} />
+              <Switch checked={isDark} onCheckedChange={setIsDark} />
+              <Moon size={18} />
+            </div>
           </div>
         </div>
       )}
     </header>
   );
-} 
+}
+
+// Add this to your global CSS (e.g., index.css or App.css):
+// .animate-slide-in-right {
+//   animation: slideInRight 0.3s cubic-bezier(0.4, 0, 0.2, 1) both;
+// }
+// @keyframes slideInRight {
+//   from { transform: translateX(100%); opacity: 0; }
+//   to { transform: translateX(0); opacity: 1; }
+// } 
