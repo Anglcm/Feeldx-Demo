@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { NavigationMenu } from "./navigation-menu";
 import logoWhite from "@/assets/logo-white.png";
+import logoDark from "@/assets/logo-dark.png";
 import { Menu, X } from "lucide-react";
 
 export function Header() {
@@ -11,6 +12,7 @@ export function Header() {
     <header className="w-full bg-white dark:bg-gray-900 shadow px-4 py-2 flex items-center justify-between">
       <Link to="/" className="font-bold text-lg text-primary flex items-center gap-2">
         <img src={logoWhite} alt="Logo" className="block dark:hidden h-12" />
+        <img src={logoDark} alt="Logo" className="hidden dark:block h-12" />
       </Link>
       <div className="ml-auto hidden md:block">
         <NavigationMenu />
