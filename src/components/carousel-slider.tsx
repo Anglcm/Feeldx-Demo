@@ -106,13 +106,6 @@ const ImageCarousel = () => {
                       src={image.src}
                       alt={image.name}
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                      onError={(e) => {
-                        console.error('Image failed to load:', image.src);
-                        // e.target.style.display = 'none';
-                      }}
-                      onLoad={() => {
-                        console.log('Image loaded successfully:', image.src);
-                      }}
                     />
                     
                     {/* Hover Overlay */}
