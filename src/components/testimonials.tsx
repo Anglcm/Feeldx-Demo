@@ -1,4 +1,4 @@
-import { Eye, Shield, Zap, Users, Settings, Award, Quote, User } from 'lucide-react';
+import { Quote, User } from 'lucide-react';
 import { useState, useEffect, useRef } from "react";
 
 const ValueProposition = () => {
