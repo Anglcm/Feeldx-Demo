@@ -9,7 +9,7 @@ export function Header() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <header className="w-full bg-white dark:bg-gray-900 shadow px-4 py-2 flex items-center justify-between">
+    <header className="w-full shadow px-4 py-2 flex items-center justify-between" style={{ borderBottom: '1px solid var(--dark-services-bg)' }}>
       <Link to="/" className="font-bold text-lg text-primary flex items-center gap-2">
         <img src={logoWhite} alt="Logo" className="block dark:hidden h-12" />
         <img src={logoDark} alt="Logo" className="hidden dark:block h-12" />

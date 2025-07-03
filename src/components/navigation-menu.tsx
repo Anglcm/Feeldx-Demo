@@ -68,7 +68,7 @@ export function NavigationMenu() {
       localStorage.setItem("theme", "dark");
     } else {
       document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
+      localStorage.setItem("theme", " light");
     }
   }, [isDark]);
 
@@ -83,10 +83,10 @@ export function NavigationMenu() {
                 <li className="row-span-3">
                   <NavigationMenuLink asChild>
                     <Link
-                      className="from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md bg-linear-to-b p-6 no-underline outline-hidden select-none focus:shadow-md"
+                      className="from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md p-6 no-underline outline-hidden select-none"
                       to="/"
                     >
-                      <div className="mt-4 mb-2 text-lg font-medium">
+                      <div className="mt-4 mb-2 text-lg font-medium text-card-foreground">
                         shadcn/ui
                       </div>
                       <p className="text-muted-foreground text-sm leading-tight">
@@ -227,8 +227,8 @@ function ListItem({
   return (
     <li {...props}>
       <NavigationMenuLink asChild>
-        <Link to={to}>
-          <div className="text-sm leading-none font-medium">{title}</div>
+        <Link to={to} className="">
+          <div className="text-sm leading-none font-medium text-foreground">{title}</div>
           <p className="text-muted-foreground line-clamp-2 text-sm leading-snug">
             {children}
           </p>

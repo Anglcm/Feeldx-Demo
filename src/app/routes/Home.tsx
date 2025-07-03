@@ -1,13 +1,21 @@
 import HeroSection from "@/components/animated-hero";
+import ImageCarousel from "@/components/carousel-slider";
+import ValueProposition from "@/components/value-proposition";
+
 
 const Home = () => {
+  // const [sliderRef] = useKeenSlider({ loop: true, slides: { perView: 1, spacing: 16 }, autoplay: true });
+
   return (
-    <div>
+    <div className="w-full p-0 m-0">
+      {/* Header */}
       <HeroSection />
-      <div className="p-8 text-center">
-        <h2 className="text-2xl font-bold">Welcome to the Home Page!</h2>
-        <p className="mt-4">This is your SPA home page.</p>
-      </div>
+
+      {/* Service Overview */}
+      <ImageCarousel />
+
+      {/* Value Proposition */}
+      <ValueProposition />
     </div>
   );
 };

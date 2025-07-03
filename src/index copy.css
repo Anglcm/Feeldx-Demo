@@ -43,20 +43,20 @@
 
 :root {
   --radius: 0.625rem;
-  --background: #f8faf7;
-  --foreground: #11140f;
-  --card: #e6e9e3;
-  --card-foreground: #11140f;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: #7a8b6a;
-  --primary-foreground: #f8faf7;
-  --secondary: #b2c3ad;
-  --secondary-foreground: #11140f;
-  --muted: #dbe2db;
-  --muted-foreground: #7a8b6a;
-  --accent: #a7bdb1;
-  --accent-foreground: #11140f;
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
@@ -74,47 +74,23 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-  /* BUILDINGS */
-  /* --office-gradient: linear-gradient(135deg, #7a8b6a 0%, #b2c3ad 100%);
-  --skyscraper-gradient: linear-gradient(135deg, #a7bdb1 0%, #b2c3ad 100%);
-  --residential-gradient: linear-gradient(135deg, #b2c3ad 0%, #e6e9e3 100%);
-  --tower-gradient: linear-gradient(135deg, #7a8b6a 0%, #a7bdb1 100%);
-  --complex-gradient: linear-gradient(135deg, #b2c3ad 0%, #7a8b6a 100%);
-  --window-light: #e6e9e3; */
-
-  /* --office-gradient: linear-gradient(135deg, #1d2318 0%, #b2c3ad 100%);
-  --skyscraper-gradient: linear-gradient(135deg, #072314 0%, #b2c3ad 100%);
-  --residential-gradient: linear-gradient(135deg, #2e4d25 0%, #e6e9e3 100%);
-  --tower-gradient: linear-gradient(135deg, #7a8b6a 0%, #a7bdb1 100%);
-  --complex-gradient: linear-gradient(135deg, #071e00 0%, #7a8b6a 100%);
-  --window-light: #e6e9e3; */
-  
-  --office-gradient: #81956f;
-  --skyscraper-gradient: #56703f;
-  --residential-gradient: #81956f;
-  --tower-gradient: #56703f;
-  --complex-gradient: #81956f;
-  --services-bg: #adc2b5;
-  --dark-services-bg: #81956f;
-
-  --window-light: #e6e9e3;
 }
 
 .dark {
-  --background: #181d16;
-  --foreground: #f8faf7;
-  --card: #232b1b;
-  --card-foreground: #f8faf7;
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: #4a5a3a;
-  --primary-foreground: #f8faf7;
-  --secondary: #7a8b6a;
-  --secondary-foreground: #f8faf7;
-  --muted: #232b1b;
-  --muted-foreground: #b2c3ad;
-  --accent: #5a6d4c;
-  --accent-foreground: #f8faf7;
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
@@ -132,18 +108,6 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
-  /* BUILDINGS */
-  --office-gradient: linear-gradient(135deg, #4a5a3a 0%, #7a8b6a 100%);
-  --skyscraper-gradient: linear-gradient(135deg, #232b1b 0%, #7a8b6a 100%);
-  --residential-gradient: linear-gradient(135deg, #7a8b6a 0%, #232b1b 100%);
-  --tower-gradient: linear-gradient(135deg, #232b1b 0%, #5a6d4c 100%);
-  --complex-gradient: linear-gradient(135deg, #232b1b 0%, #4a5a3a 100%);
-  --services-bg: #  ;
-  --dark-services-bg: #81956f;
-  --window-light: #b2c3ad;
-  --dark-nav-bg: #81956f;
-  --dark-nav-text: #f8faf7;
- 
 }
 
 @layer base {
@@ -157,13 +121,4 @@
 
 html, body {
   font-family: 'Inter', 'Segoe UI', sans-serif;
-}
-
-body, html, #root {
-  background: var(--background) !important;
-}
-
-/* Example: Only animate backgrounds on .card and .btn */
-.card, .btn {
-  transition: background 0.5s, border-color 0.5s;
 }

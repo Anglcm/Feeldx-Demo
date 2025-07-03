@@ -10,6 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@material-ui/core": "^4.12.4",
+    "@material-ui/icons": "^4.11.3",
+    "@mui-treasury/components": "^1.10.1",
+    "@mui-treasury/styles": "^1.13.1",
     "@radix-ui/react-navigation-menu": "^1.2.13",
     "@radix-ui/react-slot": "^1.2.3",
     "@radix-ui/react-switch": "^1.2.5",
@@ -18,6 +22,7 @@
     "@tanstack/react-query-devtools": "^5.81.5",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "keen-slider": "^6.8.6",
     "lucide-react": "^0.525.0",
     "path": "^0.12.7",
     "react": "^19.1.0",
@@ -25,6 +30,7 @@
     "react-error-boundary": "^6.0.0",
     "react-router": "^7.6.3",
     "react-router-dom": "^7.6.3",
+    "react-spring-3d-carousel": "^1.3.4",
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4.1.11",
     "vite-tsconfig-paths": "^5.1.4"
