@@ -165,77 +165,77 @@ type BIMProcessLineProps = {
   phase: string;
 };
 
-const BIMProcessLine = ({ delay, points, label, phase }: BIMProcessLineProps) => {
-  const [progress, setProgress] = useState(0);
-  const [showLabel, setShowLabel] = useState(false);
+// const BIMProcessLine = ({ delay, points, label, phase }: BIMProcessLineProps) => {
+//   const [progress, setProgress] = useState(0);
+//   const [showLabel, setShowLabel] = useState(false);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      const interval = setInterval(() => {
-        setProgress(prev => {
-          if (prev >= 100) {
-            clearInterval(interval);
-            setShowLabel(true);
-            return 100;
-          }
-          return prev + 3;
-        });
-      }, 30);
-      return () => clearInterval(interval);
-    }, delay);
+//   useEffect(() => {
+//     const timer = setTimeout(() => {
+//       const interval = setInterval(() => {
+//         setProgress(prev => {
+//           if (prev >= 100) {
+//             clearInterval(interval);
+//             setShowLabel(true);
+//             return 100;
+//           }
+//           return prev + 3;
+//         });
+//       }, 30);
+//       return () => clearInterval(interval);
+//     }, delay);
 
-    return () => clearTimeout(timer);
-  }, [delay]);
+//     return () => clearTimeout(timer);
+//   }, [delay]);
 
-  const getPhaseColor = () => {
-    switch (phase) {
-      case '3D': return '#3b82f6';
-      case '4D': return '#059669';
-      case '5D': return '#dc2626';
-      default: return '#6b7280';
-    }
-  };
+//   const getPhaseColor = () => {
+//     switch (phase) {
+//       case '3D': return '#3b82f6';
+//       case '4D': return '#059669';
+//       case '5D': return '#dc2626';
+//       default: return '#6b7280';
+//     }
+//   };
 
-  return (
-    <div className="absolute inset-0">
-      <svg className="w-full h-full" style={{ zIndex: 20 }}>
-        <defs>
-          <linearGradient id={`gradient-${phase}`} x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor={getPhaseColor()} stopOpacity="0.8" />
-            <stop offset="100%" stopColor={getPhaseColor()} stopOpacity="0.4" />
-          </linearGradient>
-        </defs>
-        <path
-          d={`M ${points[0].x} ${points[0].y} L ${points[1].x} ${points[1].y}`}
-          stroke={`url(#gradient-${phase})`}
-          strokeWidth="3"
-          fill="none"
-          strokeDasharray="1000"
-          strokeDashoffset={1000 - (progress * 10)}
-          style={{
-            filter: `drop-shadow(0 0 6px ${getPhaseColor()}40)`,
-            transition: 'stroke-dashoffset 0.1s ease-out',
-          }}
-        />
-      </svg>
+//   return (
+//     <div className="absolute inset-0">
+//       <svg className="w-full h-full" style={{ zIndex: 20 }}>
+//         <defs>
+//           <linearGradient id={`gradient-${phase}`} x1="0%" y1="0%" x2="100%" y2="0%">
+//             <stop offset="0%" stopColor={getPhaseColor()} stopOpacity="0.8" />
+//             <stop offset="100%" stopColor={getPhaseColor()} stopOpacity="0.4" />
+//           </linearGradient>
+//         </defs>
+//         <path
+//           d={`M ${points[0].x} ${points[0].y} L ${points[1].x} ${points[1].y}`}
+//           stroke={`url(#gradient-${phase})`}
+//           strokeWidth="3"
+//           fill="none"
+//           strokeDasharray="1000"
+//           strokeDashoffset={1000 - (progress * 10)}
+//           style={{
+//             filter: `drop-shadow(0 0 6px ${getPhaseColor()}40)`,
+//             transition: 'stroke-dashoffset 0.1s ease-out',
+//           }}
+//         />
+//       </svg>
       
-      {/* Phase Label */}
-      {showLabel && (
-        <div
-          className="absolute text-white text-xs font-semibold bg-black bg-opacity-50 px-2 py-1 rounded backdrop-blur-sm"
-          style={{
-            left: `${(points[0].x + points[1].x) / 2 - 20}px`,
-            top: `${(points[0].y + points[1].y) / 2 - 10}px`,
-            color: getPhaseColor(),
-            border: `1px solid ${getPhaseColor()}`,
-          }}
-        >
-          {label}
-        </div>
-      )}
-    </div>
-  );
-};
+//       {/* Phase Label */}
+//       {showLabel && (
+//         <div
+//           className="absolute text-white text-xs font-semibold bg-black bg-opacity-50 px-2 py-1 rounded backdrop-blur-sm"
+//           style={{
+//             left: `${(points[0].x + points[1].x) / 2 - 20}px`,
+//             top: `${(points[0].y + points[1].y) / 2 - 10}px`,
+//             color: getPhaseColor(),
+//             border: `1px solid ${getPhaseColor()}`,
+//           }}
+//         >
+//           {label}
+//         </div>
+//       )}
+//     </div>
+//   );
+// };
 
 // Service Tag Component
 type ServiceTagProps = {
