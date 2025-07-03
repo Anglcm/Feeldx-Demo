@@ -158,12 +158,12 @@ const ProfessionalBuilding = ({ height, delay, buildingType, index, width = 80 }
 };
 
 // BIM Process Visualization
-type BIMProcessLineProps = {
-  delay: number;
-  points: { x: number; y: number }[];
-  label: string;
-  phase: string;
-};
+// type BIMProcessLineProps = {
+//   delay: number;
+//   points: { x: number; y: number }[];
+//   label: string;
+//   phase: string;
+// };
 
 // const BIMProcessLine = ({ delay, points, label, phase }: BIMProcessLineProps) => {
 //   const [progress, setProgress] = useState(0);
