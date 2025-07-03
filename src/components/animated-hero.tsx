@@ -391,23 +391,13 @@ const ProfessionalCityscape = () => {
 const HeroSection = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [showAnimatedRow, setShowAnimatedRow] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-  const [isTablet, setIsTablet] = useState(false);
+  // const [isMobile, setIsMobile] = useState(false);
+  // const [isTablet, setIsTablet] = useState(false);
 
   useEffect(() => {
     setIsLoaded(true);
     const timer = setTimeout(() => setShowAnimatedRow(true), 300); // fade in after 300ms
     return () => clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
-    const checkMobileTablet = () => {
-      setIsMobile(window.innerWidth < 640);
-      setIsTablet(window.innerWidth >= 640);
-    };
-    checkMobileTablet();
-    window.addEventListener('resize', checkMobileTablet);
-    return () => window.removeEventListener('resize', checkMobileTablet);
   }, []);
 
   return (
