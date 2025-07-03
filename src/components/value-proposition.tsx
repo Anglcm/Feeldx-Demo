@@ -1,6 +1,8 @@
 import { Eye, Shield, Zap, Users, Settings, Award } from 'lucide-react';
+import { useState } from 'react';
 
 const ValueProposition = () => {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
   const values = [
     {
       icon: <Eye className="w-12 h-12 text-green-500" />,
@@ -34,13 +36,16 @@ const ValueProposition = () => {
     }
   ];
 
+  // Helper to determine if mobile/tablet
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 1024;
+
   return (
     <div className="py-20 px-6 min-h-screen text-foreground">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-5xl md:text-6xl font-light mb-4 text-foreground">
-            Why Choose FeelDX
+            Why Choose FeelDX?
           </h1>
         </div>
 
@@ -48,56 +53,74 @@ const ValueProposition = () => {
         <div className="space-y-6">
           {/* Top Row */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {values.slice(0, 3).map((value, index) => (
-              <div
-                key={index}
-                className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer min-h-[280px] flex flex-col items-center justify-center text-center hover:scale-105 hover:z-10"
-              >
-                {/* Default Content */}
-                <div className="group-hover:opacity-0 transition-opacity duration-300">
-                  <div className="w-full flex justify-center mb-6">
-                    {value.icon}
+            {values.slice(0, 3).map((value, index) => {
+              const cardIdx = index;
+              const isOpen = openIndex === cardIdx;
+              return (
+                <div
+                  key={index}
+                  className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer min-h-[280px] flex flex-col items-center justify-center text-center hover:scale-105 hover:z-10"
+                  onClick={() => {
+                    if (window.innerWidth < 1024) setOpenIndex(isOpen ? null : cardIdx);
+                  }}
+                >
+                  {/* Default Content */}
+                  <div className={`transition-opacity duration-300 ${isOpen && isMobile ? 'opacity-0' : 'group-hover:opacity-0'}`}> 
+                    <div className="w-full flex justify-center mb-6">
+                      {value.icon}
+                    </div>
+                    <h3 className="text-xl font-semibold text-gray-800 leading-tight">
+                      {value.title}
+                    </h3>
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-800 leading-tight">
-                    {value.title}
-                  </h3>
-                </div>
 
-                {/* Hover Description */}
-                <div className="absolute inset-0 p-6 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white rounded-2xl">
-                  <p className="text-gray-600 text-sm leading-relaxed text-center">
-                    {value.description}
-                  </p>
+                  {/* Description: show on hover (desktop) or click (mobile/tablet) */}
+                  <div className={`absolute inset-0 p-6 flex items-center justify-center bg-white rounded-2xl transition-opacity duration-300 ${isOpen && isMobile ? 'opacity-100 z-20' : 'opacity-0 group-hover:opacity-100'}`}
+                    style={{ pointerEvents: isOpen && isMobile ? 'auto' : undefined }}
+                  >
+                    <p className="text-gray-600 text-sm leading-relaxed text-center">
+                      {value.description}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           {/* Bottom Row */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {values.slice(3, 6).map((value, index) => (
-              <div
-                key={index + 3}
-                className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer min-h-[280px] flex flex-col items-center justify-center text-center hover:scale-105 hover:z-10"
-              >
-                {/* Default Content */}
-                <div className="group-hover:opacity-0 transition-opacity duration-300">
-                  <div className="w-full flex justify-center mb-6">
-                    {value.icon}
+            {values.slice(3, 6).map((value, index) => {
+              const cardIdx = index + 3;
+              const isOpen = openIndex === cardIdx;
+              return (
+                <div
+                  key={cardIdx}
+                  className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer min-h-[280px] flex flex-col items-center justify-center text-center hover:scale-105 hover:z-10"
+                  onClick={() => {
+                    if (window.innerWidth < 1024) setOpenIndex(isOpen ? null : cardIdx);
+                  }}
+                >
+                  {/* Default Content */}
+                  <div className={`transition-opacity duration-300 ${isOpen && isMobile ? 'opacity-0' : 'group-hover:opacity-0'}`}> 
+                    <div className="w-full flex justify-center mb-6">
+                      {value.icon}
+                    </div>
+                    <h3 className="text-xl font-semibold text-gray-800 leading-tight">
+                      {value.title}
+                    </h3>
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-800 leading-tight">
-                    {value.title}
-                  </h3>
-                </div>
 
-                {/* Hover Description */}
-                <div className="absolute inset-0 p-6 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white rounded-2xl">
-                  <p className="text-gray-600 text-sm leading-relaxed text-center">
-                    {value.description}
-                  </p>
+                  {/* Description: show on hover (desktop) or click (mobile/tablet) */}
+                  <div className={`absolute inset-0 p-6 flex items-center justify-center bg-white rounded-2xl transition-opacity duration-300 ${isOpen && isMobile ? 'opacity-100 z-20' : 'opacity-0 group-hover:opacity-100'}`}
+                    style={{ pointerEvents: isOpen && isMobile ? 'auto' : undefined }}
+                  >
+                    <p className="text-gray-600 text-sm leading-relaxed text-center">
+                      {value.description}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
