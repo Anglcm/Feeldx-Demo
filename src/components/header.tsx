@@ -5,6 +5,8 @@ import logoWhite from "@/assets/logo-white.png";
 import logoDark from "@/assets/logo-dark.png";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
+import ContactForm from "@/components/contact-form";
+
 export function Header() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [isDark, setIsDark] = useState(() => {
@@ -17,6 +19,7 @@ export function Header() {
     }
     return false;
   });
+  const [contactOpen, setContactOpen] = useState(false);
 
   useEffect(() => {
     if (isDark) {
@@ -29,52 +32,62 @@ export function Header() {
   }, [isDark]);
 
   return (
-    <header className="w-full shadow px-4 py-2 flex items-center justify-between" style={{ borderBottom: '1px solid var(--dark-services-bg)' }}>
-      <Link to="/" className="font-bold text-lg text-primary flex items-center gap-2">
-        <img src={logoWhite} alt="Logo" className="block dark:hidden h-12" />
-        <img src={logoDark} alt="Logo" className="hidden dark:block h-12" />
-      </Link>
-      <div className="ml-auto hidden md:block">
-        <NavigationMenu />
-      </div>
-      <button
-        className="ml-auto md:hidden p-2"
-        onClick={() => setSidebarOpen(true)}
-        aria-label="Open menu"
-      >
-        <Menu size={28} />
-      </button>
-      {sidebarOpen && (
-        <div className="fixed inset-0 z-50 flex justify-end">
-          <div
-            className="fixed inset-0 bg-black/50"
-            onClick={() => setSidebarOpen(false)}
-          />
-          <div className="relative bg-card w-64 h-full shadow-lg p-6 flex flex-col items-start animate-slide-in-right">
-            <button
-              className="absolute top-4 right-4"
+    <>
+      <header className="w-full shadow px-4 py-2 flex items-center justify-between" style={{ borderBottom: '1px solid var(--dark-services-bg)' }}>
+        <Link to="/" className="font-bold text-lg text-primary flex items-center gap-2">
+          <img src={logoWhite} alt="Logo" className="block dark:hidden h-12" />
+          <img src={logoDark} alt="Logo" className="hidden dark:block h-12" />
+        </Link>
+        <div className="ml-auto hidden md:block">
+          <NavigationMenu onContactClick={() => setContactOpen(true)} />
+        </div>
+        <button
+          className="ml-auto md:hidden p-2"
+          onClick={() => setSidebarOpen(true)}
+          aria-label="Open menu"
+        >
+          <Menu size={28} />
+        </button>
+        {sidebarOpen && (
+          <div className="fixed inset-0 z-50 flex justify-end">
+            <div
+              className="fixed inset-0 bg-black/50"
               onClick={() => setSidebarOpen(false)}
-              aria-label="Close menu"
-            >
-              <X size={28} />
-            </button>
-            <nav className="mt-12 flex flex-col gap-4 w-full">
-              <a href="#hero" onClick={() => setSidebarOpen(false)} className="py-2">Home</a>
-              <a href="#services" onClick={() => setSidebarOpen(false)} className="py-2">Service Overview</a>
-              <a href="#value" onClick={() => setSidebarOpen(false)} className="py-2">Why Choose FeelDX?</a>
-              <a href="#clients" onClick={() => setSidebarOpen(false)} className="py-2">Our Clients</a>
-              <a href="#testimonials" onClick={() => setSidebarOpen(false)} className="py-2">Testimonials</a>
-              <a href="/contact" onClick={() => setSidebarOpen(false)} className="py-2">Contact Us</a>
-            </nav>
-            {/* Theme Switch */}
-            <div className="mt-8 flex items-center gap-2">
-              <Sun size={18} />
-              <Switch checked={isDark} onCheckedChange={setIsDark} />
-              <Moon size={18} />
+            />
+            <div className="relative bg-card w-64 h-full shadow-lg p-6 flex flex-col items-start animate-slide-in-right">
+              <button
+                className="absolute top-4 right-4"
+                onClick={() => setSidebarOpen(false)}
+                aria-label="Close menu"
+              >
+                <X size={28} />
+              </button>
+              <nav className="mt-12 flex flex-col gap-4 w-full">
+                <a href="#hero" onClick={() => setSidebarOpen(false)} className="py-2">Home</a>
+                <a href="#services" onClick={() => setSidebarOpen(false)} className="py-2">Service Overview</a>
+                <a href="#value" onClick={() => setSidebarOpen(false)} className="py-2">Why Choose FeelDX?</a>
+                <a href="#clients" onClick={() => setSidebarOpen(false)} className="py-2">Our Clients</a>
+                <a href="#testimonials" onClick={() => setSidebarOpen(false)} className="py-2">Testimonials</a>
+                <button
+                  onClick={() => { setSidebarOpen(false); setContactOpen(true); }}
+                  className="py-2 text-left transition-colors duration-200 dark:bg-transparent dark:border-none dark:hover:bg-card dark:hover:border dark:hover:border-card"
+                  style={{ width: '100%' }}
+                >
+                  Contact Us
+                </button>
+              </nav>
+              {/* Theme Switch */}
+              <div className="mt-8 flex items-center gap-2">
+                <Sun size={18} />
+                <Switch checked={isDark} onCheckedChange={setIsDark} />
+                <Moon size={18} />
+              </div>
             </div>
           </div>
-        </div>
-      )}
-    </header>
+        )}
+      </header>
+      {/* Desktop Contact Us link (outside sidebar) */}
+      <ContactForm open={contactOpen} onClose={() => setContactOpen(false)} />
+    </>
   );
 }

@@ -48,7 +48,7 @@ import { Switch } from "@/components/ui/switch";
 //   },
 // ];
 
-export function NavigationMenu() {
+export function NavigationMenu({ onContactClick }: { onContactClick?: () => void }) {
   // Theme state and effect
   const [isDark, setIsDark] = React.useState(() => {
     if (typeof window !== "undefined") {
@@ -111,7 +111,7 @@ export function NavigationMenu() {
           </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuLink asChild>
-              <a href="/contact">Contact Us</a>
+              <button type="button" onClick={onContactClick} className="bg-transparent p-0 m-0 text-inherit cursor-pointer">Contact Us</button>
             </NavigationMenuLink>
           </NavigationMenuItem>
         </NavigationMenuList>

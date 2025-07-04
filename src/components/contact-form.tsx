@@ -31,9 +31,9 @@ const ContactForm = ({ open, onClose }: ContactFormProps) => {
         >
           ×
         </button>
-        <h2 className="text-2xl font-bold mb-4 text-center text-foreground">Contact Us</h2>
+        <h2 className="text-2xl font-bold mb-4 text-center text-foreground font-light">Contact Us</h2>
         {submitted ? (
-          <div className="text-center text-green-600 font-semibold py-8">Thank you! We'll be in touch soon.</div>
+          <div className="text-center text-green-600 font-semibold py-8 font-light">Thank you! We'll be in touch soon.</div>
         ) : (
           <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
             <input
@@ -101,7 +101,7 @@ const ContactForm = ({ open, onClose }: ContactFormProps) => {
             />
             <button
               type="submit"
-              className="mt-2 bg-primary text-primary-foreground font-semibold rounded-lg px-6 py-2 hover:bg-primary/90 transition-colors"
+              className="mt-2 bg-primary text-primary-foreground font-semibold rounded-lg px-6 py-2 hover:bg-primary/90 transition-colors font-light"
             >
               Send Message
             </button>

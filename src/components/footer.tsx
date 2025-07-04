@@ -1,7 +1,13 @@
+import { useState } from 'react';
 import { Facebook, Instagram, Youtube, Linkedin } from "lucide-react";
-
+import ContactForm from "@/components/contact-form";
 
 export function Footer() {
+  const [contactOpen, setContactOpen] = useState(false);
+  const onContactClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setContactOpen(true);
+  };
   return (
     <footer className="w-full bg-background border-t py-10 px-4 text-foreground mt-auto">
       <div className="max-w-6xl mx-auto flex flex-col items-center">
@@ -75,7 +81,7 @@ export function Footer() {
           <a href="#value" className="hover:underline">Value Proposition</a>
           <a href="#clients" className="hover:underline">Clients</a>
           <a href="#testimonials" className="hover:underline">Testimonials</a>
-          <a href="/contact" className="hover:underline">Contact Us</a>
+          <a href="#" className="hover:underline" onClick={onContactClick}>Contact Us</a>
         </nav>
 
         {/* Quick Links - Design 2*/}
@@ -114,6 +120,7 @@ export function Footer() {
           </div>
         </div> */}
       </div>
+      <ContactForm open={contactOpen} onClose={() => setContactOpen(false)} />
     </footer>
   );
 } 
