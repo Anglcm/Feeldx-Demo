@@ -527,26 +527,23 @@ const HeroSection = () => {
           
           <div className="flex justify-center mt-8">
             <button
-              className="px-8 py-4 font-semibold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[color:var(--services-bg)]"
+              className="px-8 py-4 font-semibold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 bg-card text-card-foreground hover:bg-card/90 border dark:hover:border-cardborder-card"
               style={{
                 background: 'var(--services-bg)',
-                color: 'var(--foreground)',
                 boxShadow: '0 2px 8px 0 rgba(0,0,0,0.06)',
                 transition: 'background 0.2s, box-shadow 0.2s, transform 0.2s',
               }}
               onMouseOver={e => {
-                e.currentTarget.style.background = 'rgba(137, 162, 133, 0.95)';
                 e.currentTarget.style.boxShadow = '0 4px 16px 0 rgba(0,0,0,0.10)';
                 e.currentTarget.style.transform = 'scale(1.04)';
               }}
               onMouseOut={e => {
-                e.currentTarget.style.background = 'var(--services-bg)';
                 e.currentTarget.style.boxShadow = '0 2px 8px 0 rgba(0,0,0,0.06)';
                 e.currentTarget.style.transform = 'scale(1)';
               }}
               onClick={() => setContactOpen(true)}
             >
-              Contact US
+              Contact Us
             </button>
           </div>
         </div>
