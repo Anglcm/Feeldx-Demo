@@ -5,8 +5,6 @@ import logoWhite from "@/assets/logo-white.png";
 import logoDark from "@/assets/logo-dark.png";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
-import ContactForm from "@/components/contact-form";
-
 export function Header() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [isDark, setIsDark] = useState(() => {
