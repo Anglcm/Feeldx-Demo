@@ -44,7 +44,7 @@ const ValueProposition = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-light mb-4 text-foreground">
+          <h1 className="text-2xl md:text-5xl lg:text-6xl font-light mb-4 text-foreground">
             Why Choose FeelDX?
           </h1>
         </div>
