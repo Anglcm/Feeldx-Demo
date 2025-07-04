@@ -76,7 +76,6 @@ const ValueProposition = () => {
     },
   ];
 
-  // Responsive cards per view: 1 on mobile, 3 on desktop
   const getCardsPerView = () => {
     if (typeof window !== 'undefined') {
       return window.innerWidth < 768 ? 1 : 3;

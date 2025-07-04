@@ -84,6 +84,11 @@ export function Footer() {
           <a href="#" className="hover:underline" onClick={onContactClick}>Contact Us</a>
         </nav>
 
+        {/* Copyright */}
+        <div className="text-center text-sm text-muted-foreground">
+          © 2025 FeelDX. All rights reserved.
+        </div>
+
         {/* Quick Links - Design 2*/}
         {/* <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-8 text-center md:text-left">
           <div>
