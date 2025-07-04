@@ -84,7 +84,7 @@ const ImageCarousel = () => {
         SERVICE OVERVIEW
       </h2> */}
       <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-light mb-4 text-foreground">
+          <h1 className="text-2xl md:text-5xl lg:text-6xl font-light mb-4 text-foreground">
             Service Overview
           </h1>
         </div>
@@ -139,17 +139,17 @@ const ImageCarousel = () => {
         <button
           onClick={goToPrevious}
           disabled={currentIndex === 0}
-          className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-90 hover:bg-opacity-100 disabled:bg-opacity-50 disabled:cursor-not-allowed rounded-full p-2 shadow-lg transition-all duration-300 z-10"
+          className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-card bg-opacity-90 hover:bg-opacity-100 disabled:bg-opacity-50 disabled:cursor-not-allowed rounded-full p-2 shadow-lg transition-all duration-300 z-10"
         >
-          <ChevronLeft className="w-6 h-6 text-gray-800" />
+          <ChevronLeft className="w-6 h-6" style={{ color: 'var(--primary)' }} />
         </button>
         
         <button
           onClick={goToNext}
           disabled={currentIndex >= maxIndex}
-          className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-90 hover:bg-opacity-100 disabled:bg-opacity-50 disabled:cursor-not-allowed rounded-full p-2 shadow-lg transition-all duration-300 z-10"
+          className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-card bg-opacity-90 hover:bg-opacity-100 disabled:bg-opacity-50 disabled:cursor-not-allowed rounded-full p-2 shadow-lg transition-all duration-300 z-10"
         >
-          <ChevronRight className="w-6 h-6 text-gray-800" />
+          <ChevronRight className="w-6 h-6" style={{ color: 'var(--primary)' }} />
         </button>
       </div>
 
@@ -161,9 +161,9 @@ const ImageCarousel = () => {
             onClick={() => goToSlide(index)}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${
               index === currentIndex
-                ? 'bg-blue-600 scale-125'
-                : 'bg-gray-300 hover:bg-gray-400'
+                ? 'scale-125' : ''
             }`}
+            style={{ background: index === currentIndex ? 'var(--primary)' : 'var(--muted)' }}
           />
         ))}
       </div>

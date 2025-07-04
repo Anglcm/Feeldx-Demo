@@ -5,6 +5,7 @@ import logoWhite from "@/assets/logo-white.png";
 import logoDark from "@/assets/logo-dark.png";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
+import ContactForm from "@/components/contact-form";
 
 export function Header() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -19,11 +20,6 @@ export function Header() {
     return false;
   });
 
-  // Sync dark mode
-  // (This effect is safe to run in both header and navigation-menu)
-  // You may want to extract this to a custom hook for DRY code
-  // but for now, just duplicate for clarity
-  // (If you want, ask for a custom hook after this step)
   useEffect(() => {
     if (isDark) {
       document.documentElement.classList.add("dark");
@@ -84,12 +80,3 @@ export function Header() {
     </header>
   );
 }
-
-// Add this to your global CSS (e.g., index.css or App.css):
-// .animate-slide-in-right {
-//   animation: slideInRight 0.3s cubic-bezier(0.4, 0, 0.2, 1) both;
-// }
-// @keyframes slideInRight {
-//   from { transform: translateX(100%); opacity: 0; }
-//   to { transform: translateX(0); opacity: 1; }
-// } 

@@ -5,32 +5,32 @@ const ValueProposition = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const values = [
     {
-      icon: <Eye className="w-12 h-12 text-green-500" />,
+      icon: <Eye className="w-12 h-12" style={{ color: 'var(--primary)' }} />,
       title: "Enhanced Visualization",
       description: "FeelDX uses 3D and 4D BIM to create immersive visual experiences, allowing clients to better understand, plan, and communicate their projects with unprecedented clarity and detail."
     },
     {
-      icon: <Shield className="w-12 h-12 text-green-500" />,
+      icon: <Shield className="w-12 h-12" style={{ color: 'var(--primary)' }} />,
       title: "Improved Project Control",
       description: "We offer comprehensive solutions for real-time monitoring, risk management, and streamlined project execution, helping to identify potential issues early and optimize workflows throughout the project lifecycle."
     },
     {
-      icon: <Zap className="w-12 h-12 text-green-500" />,
+      icon: <Zap className="w-12 h-12" style={{ color: 'var(--primary)' }} />,
       title: "Increased Efficiency",
       description: "By seamlessly integrating cutting-edge technology with deep industry expertise, FeelDX helps clients accelerate design iterations, enhance communication, and significantly reduce both time and costs associated with construction projects."
     },
     {
-      icon: <Users className="w-12 h-12 text-green-500" />,
+      icon: <Users className="w-12 h-12" style={{ color: 'var(--primary)' }} />,
       title: "Strategic Partnerships",
       description: "FeelDX collaborates closely with architects, engineers, and developers to provide comprehensive support throughout the entire project lifecycle, ensuring seamless integration and optimal results."
     },
     {
-      icon: <Settings className="w-12 h-12 text-green-500" />,
+      icon: <Settings className="w-12 h-12" style={{ color: 'var(--primary)' }} />,
       title: "Tailored Solutions",
       description: "We develop and deliver customized strategies and innovative solutions based on the unique requirements and challenges of each project, rather than adopting a generic one-size-fits-all approach."
     },
     {
-      icon: <Award className="w-12 h-12 text-green-500" />,
+      icon: <Award className="w-12 h-12" style={{ color: 'var(--primary)' }} />,
       title: "AEC Industry Expertise",
       description: "Our experienced team possesses deep knowledge and extensive experience in the Architecture, Engineering, and Construction industry, enabling us to provide valuable insights, recommendations, and strategic guidance."
     }
@@ -102,7 +102,7 @@ const ValueProposition = () => {
                 >
                   {/* Default Content */}
                   <div className={`transition-opacity duration-300 ${isOpen && isMobile ? 'opacity-0' : 'group-hover:opacity-0'}`}> 
-                    <div className="w-full flex justify-center mb-6">
+                    <div className="w-full flex justify-center mb-6" >
                       {value.icon}
                     </div>
                     <h3 className="text-xl font-semibold text-foreground leading-tight">
@@ -127,19 +127,19 @@ const ValueProposition = () => {
         {/* Additional Stats Row - Similar to Pearagon's bottom row */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
           <div className="bg-card text-card-foreground rounded-2xl p-6 text-center shadow-lg">
-            <div className="text-3xl font-bold text-green-600 mb-2">50+</div>
+            <div className="text-3xl font-bold text-green-600 mb-2" style={{ color: 'var(--primary)' }}>50+</div>
             <div className="text-muted-foreground text-sm font-medium">Projects Completed</div>
           </div>
           <div className="bg-card text-card-foreground rounded-2xl p-6 text-center shadow-lg">
-            <div className="text-3xl font-bold text-green-600 mb-2">15+</div>
+            <div className="text-3xl font-bold text-green-600 mb-2" style={{ color: 'var(--primary)' }}>15+</div>
             <div className="text-muted-foreground text-sm font-medium">Years Experience</div>
           </div>
           <div className="bg-card text-card-foreground rounded-2xl p-6 text-center shadow-lg">
-            <div className="text-3xl font-bold text-green-600 mb-2">100%</div>
+            <div className="text-3xl font-bold text-green-600 mb-2" style={{ color: 'var(--primary)' }}>100%</div>
             <div className="text-muted-foreground text-sm font-medium">Client Satisfaction</div>
           </div>
           <div className="bg-card text-card-foreground rounded-2xl p-6 text-center shadow-lg">
-            <div className="text-3xl font-bold text-green-600 mb-2">24/7</div>
+            <div className="text-3xl font-bold text-green-600 mb-2" style={{ color: 'var(--primary)' }}>24/7</div>
             <div className="text-muted-foreground text-sm font-medium">Support Available</div>
           </div>
         </div>

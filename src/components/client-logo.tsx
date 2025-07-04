@@ -137,7 +137,7 @@ const ClientLogoCarousel = () => {
         OUR CLIENTS
       </h2> */}
       <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-light mb-4 text-foreground">
+          <h1 className="text-2xl md:text-5xl lg:text-6xl font-light mb-4 text-foreground">
             Our Clients
           </h1>
         </div>
@@ -189,10 +189,9 @@ const ClientLogoCarousel = () => {
             key={idx}
             onClick={() => setPage(idx)}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              idx === page
-                ? 'bg-blue-600 scale-125'
-                : 'bg-gray-300 hover:bg-gray-400'
+              idx === page ? 'scale-125' : ''
             }`}
+            style={{ background: idx === page ? 'var(--primary)' : 'var(--muted)' }}
           />
         ))}
       </div>

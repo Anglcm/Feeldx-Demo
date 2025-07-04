@@ -110,7 +110,7 @@ const ValueProposition = () => {
     <section className="py-16 bg-background text-foreground">
       <div className="max-w-5xl mx-auto px-4">
          <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-light mb-4 text-foreground">
+          <h1 className="text-2xl md:text-5xl lg:text-6xl font-light mb-4 text-foreground">
             Testimonials
           </h1>
         </div>
@@ -124,11 +124,11 @@ const ValueProposition = () => {
               {/* Icon Avatar */}
               <div className="absolute -top-12 left-1/2 -translate-x-1/2">
                 <div className="w-24 h-24 rounded-full border-4 border-card shadow-md bg-muted flex items-center justify-center">
-                  <User className="w-14 h-14 text-muted-foreground" />
+                  <User className="w-14 h-14" style={{ color: 'var(--primary)' }} />
                 </div>
               </div>
               {/* Quote and Text */}
-              <Quote className="w-8 h-8 text-muted-foreground mb-2"/>
+              <Quote className="w-8 h-8 mb-2" style={{ color: 'var(--primary)' }} />
               <p className="text-center text-foreground mb-6 mt-2">
                 {t.comment}
               </p>
@@ -147,11 +147,9 @@ const ValueProposition = () => {
               key={idx}
               onClick={() => goToPage(idx)}
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                idx === index
-                  ? 'bg-green-500 scale-125'
-                  : 'bg-gray-300 hover:bg-gray-400'
+                idx === index ? 'scale-125' : ''
               }`}
-              aria-label={`Go to testimonial page ${idx + 1}`}
+              style={{ background: idx === index ? 'var(--primary)' : 'var(--muted)' }}
             />
           ))}
         </div>

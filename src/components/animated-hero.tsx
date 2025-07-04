@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
+import ContactForm from './contact-form';
 
 // Professional Building Component with realistic proportions
 type ProfessionalBuildingProps = {
@@ -391,6 +392,7 @@ const ProfessionalCityscape = () => {
 const HeroSection = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [showAnimatedRow, setShowAnimatedRow] = useState(false);
+  const [contactOpen, setContactOpen] = useState(false);
   // const [isMobile, setIsMobile] = useState(false);
   // const [isTablet, setIsTablet] = useState(false);
 
@@ -402,6 +404,8 @@ const HeroSection = () => {
 
   return (
     // <div className="relative h-screen w-full bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900 overflow-hidden">
+    <Fragment>
+
     <div className="relative w-full overflow-hidden mt-8">
       <style>{`
         @keyframes window-activate {
@@ -473,7 +477,7 @@ const HeroSection = () => {
           >
             {/* Plan */}
             <span
-              className={`text-lg md:text-2xl lg:text-4xl font-bold text-foreground transition-all duration-700
+              className={`text-2xl md:text-5xl lg:text-6xl  font-light text-foreground transition-all duration-700
                 ${showAnimatedRow ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
               style={{ transitionDelay: '0ms' }}
             >
@@ -487,7 +491,7 @@ const HeroSection = () => {
             />
             {/* Visualise */}
             <span
-              className={`text-lg md:text-2xl lg:text-4xl font-bold text-foreground transition-all duration-700
+              className={`text-2xl md:text-5xl lg:text-6xl  font-light text-foreground transition-all duration-700
                 ${showAnimatedRow ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
               style={{ transitionDelay: '400ms' }}
             >
@@ -501,14 +505,14 @@ const HeroSection = () => {
             />
             {/* Transform */}
             <span
-              className={`text-lg md:text-2xl lg:text-4xl font-bold text-foreground transition-all duration-700
+              className={`text-2xl md:text-5xl lg:text-6xl  font-light text-foreground transition-all duration-700
                 ${showAnimatedRow ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
               style={{ transitionDelay: '800ms' }}
             >
               Transform
             </span>
           </div>
-          <p className={`text-sm sm:text-base md:text-xl text-foreground mb-8 max-w-xs sm:max-w-md md:max-w-3xl transition-all duration-700 text-center mx-auto px-2
+          <p className={`text-sm sm:text-base md:text-xl text-foreground font-light mb-8 max-w-xs sm:max-w-md md:max-w-3xl transition-all duration-700 text-center mx-auto px-2
             ${showAnimatedRow ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
             style={{ transitionDelay: '1100ms' }}
           >
@@ -540,6 +544,7 @@ const HeroSection = () => {
                 e.currentTarget.style.boxShadow = '0 2px 8px 0 rgba(0,0,0,0.06)';
                 e.currentTarget.style.transform = 'scale(1)';
               }}
+              onClick={() => setContactOpen(true)}
             >
               Contact US
             </button>
@@ -549,7 +554,11 @@ const HeroSection = () => {
       
       
     </div>
+    <ContactForm open={contactOpen} onClose={() => setContactOpen(false)} />
+    </Fragment>
+  
   );
+
 };
 
 export default HeroSection;
