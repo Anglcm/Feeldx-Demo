@@ -16,31 +16,31 @@ const ImageCarousel = () => {
       id: 1,
       src: img3d,
       name: "BIM Services -3D Design",
-      description: "Professional 3D modeling and visualization services"
+      description: ""
     },
     {
       id: 2,
       src: img4d,
       name: "BIM Services -4D Animation",
-      description: "Advanced 4D animation and motion graphics"
+      description: ""
     },
     {
       id: 3,
       src: img5d,
       name: "BIM Services -5D Experience",
-      description: "Immersive 5D multimedia experience design"
+      description: "I"
     },
     {
       id: 4,
       src: imginterior,
       name: "Interior Design",
-      description: "Modern interior design and space planning"
+      description: ""
     },
     {
       id: 5,
       src: imgmultimedia,
       name: "Multimedia",
-      description: "Creative multimedia content and digital solutions"
+      description: ""
     }
   ];
 
@@ -104,19 +104,19 @@ const ImageCarousel = () => {
                 className="flex-shrink-0 px-2"
                 style={{ width: `${100 / cardsPerView}%` }}
               >
-                <div className="group flex flex-col justify-between bg-card text-card-foreground rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 h-96">
+                <div className="flex flex-col justify-between bg-card text-card-foreground rounded-lg overflow-hidden shadow-lg h-96">
                   {/* Image Container */}
-                  <div className="w-full aspect-[4/5] overflow-hidden rounded-t-lg">
+                  <div className="w-full aspect-[4/5] overflow-hidden rounded-t-lg relative">
                     <img
                       src={image.src}
                       alt={image.name}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                      className="w-full h-full object-cover"
                     />
                     
-                    {/* Hover Overlay */}
-                    <div className="absolute inset-0 bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 flex items-center justify-center text-foreground">
-                      <div className="text-card-foreground text-center px-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
-                        <p className="text-sm leading-relaxed text-muted-foreground">
+                    {/* Always visible overlay with description */}
+                    <div className="absolute inset-0 bg-opacity-50 flex items-center justify-center">
+                      <div className="text-white text-center px-4">
+                        <p className="text-sm leading-relaxed">
                           {image.description}
                         </p>
                       </div>
