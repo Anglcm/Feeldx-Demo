@@ -76,14 +76,32 @@ const ValueProposition = () => {
     },
   ];
 
-  const CARDS_PER_VIEW = 3;
+  // Responsive cards per view: 1 on mobile, 3 on desktop
+  const getCardsPerView = () => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth < 768 ? 1 : 3;
+    }
+    return 3; // Default for SSR
+  };
+
+  const [cardsPerView, setCardsPerView] = useState(getCardsPerView());
   const AUTO_SLIDE_INTERVAL = 3500;
 
   const [index, setIndex] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
+  // Update cards per view on window resize
+  useEffect(() => {
+    const handleResize = () => {
+      setCardsPerView(getCardsPerView());
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   // Calculate how many "pages" of testimonials there are
-  const pageCount = Math.ceil(testimonials.length / CARDS_PER_VIEW);
+  const pageCount = Math.ceil(testimonials.length / cardsPerView);
 
   // Move to next page
   const next = () => setIndex((prev) => (prev + 1) % pageCount);
@@ -99,8 +117,8 @@ const ValueProposition = () => {
 
   // Get testimonials for current page
   const getCurrentTestimonials = () => {
-    const start = index * CARDS_PER_VIEW;
-    return testimonials.slice(start, start + CARDS_PER_VIEW);
+    const start = index * cardsPerView;
+    return testimonials.slice(start, start + cardsPerView);
   };
 
   // Handle manual dot click
@@ -115,7 +133,7 @@ const ValueProposition = () => {
           </h1>
         </div>
        
-        <div className="grid md:grid-cols-3 gap-8 transition-all duration-500">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 transition-all duration-500">
           {getCurrentTestimonials().map((t, i) => (
             <div
               key={i}
